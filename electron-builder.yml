@@ -1,0 +1,54 @@
+appId: com.k3mart.newpos
+productName: NEWPOS
+directories:
+  buildResources: resources
+files:
+  # - dist/renderer/**
+  # - out/main/**
+  # - package.json
+  # - '!node_modules/*
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  - dist/renderer/** # Pastikan hasil build frontend dimasukkan
+  - out/main/** # Folder hasil build Electron main process
+  - package.json # Diperlukan untuk menjalankan Electron
+  - '!node_modules/*' # Opsional, jika tidak menggunakan `asar
+asarUnpack:
+  - resources/**
+win:
+  executableName: NEWPOS
+  icon: resources/icon.ico
+  nsis:
+    artifactName: ${name}-${version}-setup.${ext}
+    shortcutName: ${productName}
+    uninstallDisplayName: ${productName}
+    createDesktopShortcut: always
+mac:
+  icon: resources/icon.icns
+  entitlementsInherit: resources/entitlements.mac.plist
+  extendInfo:
+    NSCameraUsageDescription: Application requests access to the device's camera.
+    NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  icon: resources/icon.png
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: false
+publish:
+  provider: generic
+  url: https://example.com/auto-updates

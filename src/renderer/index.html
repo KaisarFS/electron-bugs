@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>NEWPOS</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; 
+  script-src 'self' 'wasm-unsafe-eval'; 
+  worker-src 'self' blob:; 
+  connect-src 'self' *;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  img-src 'self' data:; 
+  "
+  /> -->
+    <!-- font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; 
+     connect-src 'self' http://68.183.184.176:3000 http://145.182.3.44:6402 ws://localhost:5173 wss://68.183.184.176:3000; 
+
+ -->
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval';
+        connect-src 'self' *;
+        style-src 'self' 'unsafe-inline';
+        https://graph.k3mart.id 'self';
+        img-src 'self' data: https://graph.k3mart.id;
+      "
+    />
+
+    <!-- content="default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:" -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+
+  <style>
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  </style>
+</html>

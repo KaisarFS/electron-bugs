@@ -1,0 +1,12 @@
+node_modules
+dist
+out
+.DS_Store
+*.log*
+.env
+
+yarn.lock  # Add this line to ignore yarn.lock
+*yarn
+out
+
+**/*.csv

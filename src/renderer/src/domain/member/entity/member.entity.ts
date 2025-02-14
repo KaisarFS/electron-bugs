@@ -1,0 +1,31 @@
+export interface TblMember {
+  id: string
+  memberCode: string
+  memberName: string
+  memberGroupId: number
+  memberTypeId: number
+  balanceId?: number
+  idType: string
+  idNo: string
+  address01: string
+  address02: string
+  cityId?: number
+  state: string
+  zipCode: string
+  mobileNumber: string
+  phoneNumber: string
+  email: string
+  birthDate?: string
+  gender: string
+  taxId: string
+  cashback: number
+  validityDate: string
+  storeId: string
+  oldMemberCode: string
+  mobileActivate: string
+  defaultMember: number
+  createdBy: string
+  createdAt: Date
+  updatedBy?: string
+  updatedAt?: Date
+}

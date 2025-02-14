@@ -1,0 +1,87 @@
+{
+  "name": "electron-base",
+  "version": "1.0.0",
+  "description": "An Electron application with React and TypeScript",
+  "main": "./out/main/index.js",
+  "author": "example.com",
+  "homepage": "https://electron-vite.org",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win --x64",
+    "build:mac": "electron-vite build && electron-builder --mac",
+    "build:linux": "electron-vite build && electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.k3mart.newpos",
+    "productName": "NEWPOS",
+    "directories": {
+      "buildResources": "resources"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico"
+    },
+    "mac": {
+      "icon": "resources/icon.icns"
+    },
+    "linux": {
+      "icon": "resources/icon.png"
+    }
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.2.16",
+    "@electric-sql/pglite-react": "^0.2.16",
+    "@electric-sql/pglite-sync": "^0.2.18",
+    "@electric-sql/react": "^1.0.0-beta.4",
+    "@electron-toolkit/preload": "^3.0.1",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@reduxjs/toolkit": "^2.5.0",
+    "antd": "^5.22.4",
+    "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
+    "js-cookie": "^3.0.5",
+    "moment": "^2.30.1",
+    "pouchdb": "^9.0.0",
+    "pouchdb-find": "^9.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.0.2",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^3.1.0",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config-prettier": "^2.0.0",
+    "@electron-toolkit/eslint-config-ts": "^2.0.0",
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.14.8",
+    "@types/pouchdb": "^6.4.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "electron-vite": "^2.3.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.3",
+    "postcss": "^8.4.49",
+    "prettier": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.1",
+    "vite-plugin-node-polyfills": "^0.23.0"
+  }
+}
